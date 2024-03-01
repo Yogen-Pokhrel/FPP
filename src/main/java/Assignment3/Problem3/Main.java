@@ -40,6 +40,18 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        while (true){
+            action();
+            System.out.println("Do you want to perform the next calculation, if Yes type Y or Yes");
+            String input = scanner.nextLine().toUpperCase();
+            if(!(input.equals("Y") || input.equals("YES"))){
+                break;
+            }
+        }
+    }
+
+    public static void action(){
+        Scanner scanner = new Scanner(System.in);
         Shape choosenShape;
         while (true){
             System.out.println("Please choose the shape from ");
