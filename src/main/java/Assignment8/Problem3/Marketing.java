@@ -67,7 +67,7 @@ public class Marketing {
 
     public static void main(String[] args) {
         List<Marketing> marketingList = new ArrayList<>();
-        marketingList.add(new Marketing("Yogen Pokhrel", "Macbook Pro", 2500.0));
+        marketingList.add(new Marketing("Yogen Pokhrel", "Macbook Pro", 1000.0));
         marketingList.add(new Marketing("Dikshya Pokhrel", "Plastic Bottle", 200.0));
         marketingList.add(new Marketing("Manjari Lamsal", "Asus Laptop", 1000.0));
         marketingList.add(new Marketing("Sameekshya Prasai", "Camera", 500.0));
@@ -78,7 +78,13 @@ public class Marketing {
         System.out.println(marketingList + "\n");
 
         //sorting using sales amount
-        marketingList.sort((o1, o2) -> (int)Math.ceil(o1.salesAmount - o2.salesAmount));
+        marketingList.sort((o1, o2) -> {
+            int salesDiff = (int)Math.ceil(o1.salesAmount - o2.salesAmount);
+            if(salesDiff != 0){return salesDiff;}
+            if(o1.employeeName.compareTo(o2.employeeName) != 0){return o1.employeeName.compareTo(o2.employeeName);}
+            return o1.productName.compareTo(o2.productName);
+        });
+
         System.out.println("Sorted Marketing List");
         System.out.println(marketingList+"\n");
 
